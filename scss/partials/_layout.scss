@@ -1,0 +1,131 @@
+// layout.scss
+$mobile: new-breakpoint(max-width 500px 4);
+
+body {
+	@include outer-container;
+	background: #79BD9A;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	@include span-columns(8);
+	@include shift(2);
+	@include media($mobile) {
+		@include span-columns(4);
+		@include shift(0);
+		@include pad();
+	}
+	margin-top: 55px;
+	margin-bottom: 55px;
+}
+
+header {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+
+	h2 {
+		font-size: 26px;
+		color: #fafafa;
+		text-align: center;
+	}
+}
+
+section.inputs {
+	@include clearfix;
+
+	h4 {
+		font-size: 16px;
+		color: #fafafa;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	#meal-cost {
+		@include span-columns(4 of 8);
+		@include shift(2);
+		@include media($mobile) {
+			@include span-columns(4 of 4);
+			@include shift(0);
+		}
+		height: 40px;
+		border-radius: 5px;
+		background: rgba(255, 255, 255, 0.5);
+		border: none;
+		outline: #ffffff;
+		padding: 5px;
+		font-size: 16px;
+		color: #4B4B4B;
+	}
+
+	.tip-options {
+		@include span-columns(6 of 8);
+		@include shift(1);
+		@include media($mobile) {
+			@include span-columns(4 of 4);
+			@include shift(0);
+		}
+		margin-top: 25px;
+		margin-bottom: 25px;
+
+		li {
+			@include span-columns(2 of 6);
+			@include media($mobile) {
+				@include span-columns(4 of 4);
+				@include shift(0);
+				@include pad();
+				@include omega;
+				margin-bottom: 10px;
+			}
+			float: left;
+			margin-right: 20px;
+			border: 1px solid #fafafa;
+			border-radius: 5px;
+			text-align: center;
+			color: #fafafa;
+			padding: 10px 0;
+			cursor: pointer;
+			@include transition(all 0.45s ease-in-out);
+
+			&:last-child {
+				@include omega;
+				margin-right: 0;
+				@include media($mobile) {
+					margin-bottom: 0;
+				}
+			}
+
+			&.active, &:hover {
+				background: #fafafa;
+				color: #79BD9A;
+			}
+		}
+	}
+}
+
+section.outputs {
+	text-align: center;
+	color: #3B8686;
+
+	.tip-container, .grand-total-container {
+		@include span-columns(4 of 8);
+		@include shift(2);
+		@include media($mobile) {
+			@include span-columns(4 of 4);
+			@include shift(0);
+		}
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 5px;
+		padding: 25px 0;
+	}
+
+	.tip-container {
+		margin-bottom: 25px;
+	}
+
+	h1 {
+		font-size: 28px;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+}
